@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import { ButtonList, Button } from './FeedbackOptions.styled';
 
-export const FeedbackOptions = ({ options, handleFeedbackIncrement }) => {
+const options = ['good', 'neutral', 'bad'];
+
+export const FeedbackOptions = ({ handleFeedbackIncrement }) => {
   return (
     <ButtonList>
       {options.map(option => (
@@ -9,7 +11,9 @@ export const FeedbackOptions = ({ options, handleFeedbackIncrement }) => {
           key={option}
           type="button"
           name={option}
-          onClick={handleFeedbackIncrement}
+          onClick={() => {
+            handleFeedbackIncrement(option);
+          }}
         >
           {option}
         </Button>
@@ -19,6 +23,5 @@ export const FeedbackOptions = ({ options, handleFeedbackIncrement }) => {
 };
 
 FeedbackOptions.PropType = {
-  options: PropTypes.oneOf(['good', 'neutral', 'bad']).isRequired,
   handleFeedbackIncrement: PropTypes.func.isRequired,
 };

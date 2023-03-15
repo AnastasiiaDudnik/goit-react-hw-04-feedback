@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { FeedbackList } from './Statistics.styled';
 
 export const Statistics = ({
-  state: { good, neutral, bad },
+  good,
+  neutral,
+  bad,
   totalFeedback,
   positiveFeedback,
 }) => {
